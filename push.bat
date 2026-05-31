@@ -1,11 +1,8 @@
 @echo off
-echo Initializing Git repository...
-git init
+echo Adding new changes...
 git add .
-git commit -m "first commit"
-git branch -M main
-git remote add origin https://github.com/dheeraj0677/Road-Safety-Hackathon.git
+git commit -m "feat: Auto-send distress SMS with location to custom emergency contacts"
 echo Pushing to GitHub...
-git push -u origin main
+git push origin main
 echo Done!
 pause

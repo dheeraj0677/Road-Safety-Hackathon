@@ -7,7 +7,7 @@ import ResultsTabs from './components/ResultsTabs';
 import MapView from './components/MapView';
 import EmergencyContacts from './components/EmergencyContacts';
 import Settings from './components/Settings';
-import { getSettings } from './utils/storage';
+import { getSettings, getCustomContacts } from './utils/storage';
 
 export default function App() {
   const [screen, setScreen] = useState('home');
@@ -17,6 +17,15 @@ export default function App() {
   const handleSOSActivate = (location) => {
     setCoords(location);
     setScreen('results');
+
+    const contacts = getCustomContacts();
+    if (contacts && contacts.length > 0) {
+      const numbers = contacts.map(c => c.number).join(',');
+      const message = `SOS! I need emergency assistance.\nMy Location: https://maps.google.com/?q=${location.latitude},${location.longitude}`;
+      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+      const separator = isIOS ? '&' : '?';
+      window.location.href = `sms:${numbers}${separator}body=${encodeURIComponent(message)}`;
+    }
   };
 
   const renderScreen = () => {
