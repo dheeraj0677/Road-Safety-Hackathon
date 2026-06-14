@@ -8,14 +8,13 @@ RoadSoS is a mobile-first React Progressive Web App (PWA) designed to provide in
 - **Offline Resilience:** Utilizes local caching and a Service Worker to provide offline access to your last known location and recently fetched services.
 - **Integrated Maps:** Beautiful dark-themed interactive map with categorized markers powered by Leaflet and OpenStreetMap.
 - **Emergency Contacts:** Quick access to standard emergency numbers and a custom contact list with one-tap calling.
-- **Customization:** Configurable search radius and distance units (km/miles).
+
 
 ## Tech Stack
 - React 18 (Vite)
 - Tailwind CSS v3
 - Leaflet.js & react-leaflet
 - OpenStreetMap & Overpass API for real-time service discovery
-- Progressive Web App (PWA) features for offline functionality
 
 ## Getting Started
 
